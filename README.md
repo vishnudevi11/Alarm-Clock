@@ -38,7 +38,11 @@ This is a customizable alarm clock that allows users to set alarms, toggle theme
 
 ## Preview Image
 
-![image](https://github.com/user-attachments/assets/12f32001-7bff-4000-ae51-548c1cd9d1d2)
+**Dark Mode with Note**
+![image](https://github.com/user-attachments/assets/f3778789-d7eb-4f75-8a01-ad2c8ad958a3)
+
+**Light Mode**
+![image](https://github.com/user-attachments/assets/fc1f4179-ff9e-40c5-a35d-42132946cfbb)
 
 
 ### Steps to run the project:
@@ -46,4 +50,4 @@ This is a customizable alarm clock that allows users to set alarms, toggle theme
 1. Clone the repository:
    ```bash
    git clone
-   (https://github.com/vishnudevi11/Alarm-Clock.git)
+  [https://github.com/yourusername/Alarm-Clock.git](https://github.com/vishnudevi11/Alarm-Clock.git)
