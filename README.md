@@ -39,9 +39,11 @@ This is a customizable alarm clock that allows users to set alarms, toggle theme
 ## Preview Image
 
 **Dark Mode with Note**
+
 ![image](https://github.com/user-attachments/assets/f3778789-d7eb-4f75-8a01-ad2c8ad958a3)
 
 **Light Mode**
+
 ![image](https://github.com/user-attachments/assets/fc1f4179-ff9e-40c5-a35d-42132946cfbb)
 
 
