@@ -30,6 +30,7 @@ This is a customizable alarm clock that allows users to set alarms, toggle theme
 ### 6. **Alarm List**
    - The user can view all the alarms they have set in a list format.
    - Each alarm entry displays the time and the note (if any).
+   - The user can edit and delete the alarm
 
 ### 7. **Alarm Popup**
    - When the alarm time is reached, a popup appears with a notification that the alarm is ringing.
@@ -44,4 +45,5 @@ This is a customizable alarm clock that allows users to set alarms, toggle theme
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/vishnudevi11/Alarm-Clock.git
+   git clone
+   (https://github.com/vishnudevi11/Alarm-Clock.git)
