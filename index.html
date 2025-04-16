@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alarm Clock</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <button id="theme-toggle" title="Toggle Theme">
+    <i class="fa fa-moon-o"></i>
+  </button>
+  <h3>Set Alarm</h3>
+  <!-- clock -->
+  <svg id="clock" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="95" stroke="#333" stroke-width="5" fill="white"/>
+    <g id="numbers"></g>
+    <line id="hour-hand" x1="100" y1="100" x2="100" y2="60" stroke="black" stroke-width="4" stroke-linecap="round"/>
+    <line id="minute-hand" x1="100" y1="100" x2="100" y2="40" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="100" cy="100" r="3" fill="black"/>
+  </svg>
+
+  <div id="alarm-info">
+    <div class="alarm-time-row">
+  <p><strong><span id="alarm-time">00:00 AM</span></strong></p>
+  <div class="ampm-dropdown">
+    <button id="ampm-toggle-btn">AM</button>
+  </div>
+</div>
+
+    <div class="days">
+      <div class="day-circle" data-day="0">S</div>
+      <div class="day-circle" data-day="1">M</div>
+      <div class="day-circle" data-day="2">T</div>
+      <div class="day-circle" data-day="3">W</div>
+      <div class="day-circle" data-day="4">T</div>
+      <div class="day-circle" data-day="5">F</div>
+      <div class="day-circle" data-day="6">S</div>
+    </div>
+    <br>
+   <div class="action-wrapper">
+  <div class="action-buttons">
+    <button id="add-note">+</button>
+    
+    <div id="toggle-area">
+      <button id="submitButton">Set Alarm</button>
+    </div>
+  </div>
+  <div id="set-alarm-wrapper">
+    <button id="submitButtonBottom" style="display: none;">Set Alarm</button>
+  </div>
+</div>
+
+
+    <div class="added-alarms" id="alarmsList"></div>
+  </div>
+
+<div id="alarmPopup" class="alarm-popup" style="display: none;">
+  <p>⏰ Alarm is ringing!</p>
+  <button id="stopAlarm">Stop</button>
+  <button id="snoozeAlarm">Snooze</button>
+</div>
+<audio id="alarmSound" src="./audio/alarm.mp3" preload="auto"></audio>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  //padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  //background-color: #f4f4f4;
+  //transition: background 0.3s, color 0.3s;
+}
+
+#clock {
+  width: 300px;
+  height: 300px;
+}
+
+.alarm-time-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.alarm-time-row p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+#ampm-toggle-btn {
+  padding: 6px 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color:rgb(162, 202, 245);
+  transition: background-color 0.3s ease;
+}
+
+/* AM/PM toggle styles */
+#ampm-toggle-btn.am-active {
+  background-color: #007BFF;
+  color: white;
+}
+
+#ampm-toggle-btn.pm-active {
+  background-color:rgb(100, 149, 202);
+  color: white;
+}
+
+.days {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.day-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.day-circle.active {
+  background-color:rgba(0, 123, 255, 0.9);
+  color: white;
+}
+
+.note-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+#note-container {
+  display: none;
+  margin-top: 10px;
+}
+
+#note {
+  width: 50%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Action buttons section */
+.action-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Button wrapper: initial row, stacked after click */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+
+/* Input that appears in place of Set Alarm */
+#toggle-area input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Set Alarm button goes here (bottom) */
+#set-alarm-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Buttons styling */
+/* + / - toggle button */
+#add-note {
+  padding: 5px 11px;
+  font-size: 21px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  width: 16%; /* Prevent full width */
+  white-space: nowrap;
+}
+#add-note:hover {
+  background-color: #0056b3;
+}
+
+#add-note.small {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+
+/* Input shown instead of Set Alarm */
+#toggle-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button row stacks correctly */
+.action-buttons.stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+#submitButtonBottom {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+}
+
+#submitButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+}
+
+#submitButton:hover {
+  background-color: #218838;
+}
+
+#submitButtonBottom {
+  background-color: #28a745;
+}
+
+#submitButtonBottom:hover {
+  background-color: #218838;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: #f0f0f0;
+}
+
+body.dark-mode .alarm-entry {
+  background-color: #333;
+  color: #fff;
+}
+body.dark .day-circle.active {
+  background-color: #555;
+  color: white;
+}
+#theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Additional: For fade-in animation if you want */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#alarmsList {
+  margin-top: 20px;
+}
+
+.alarm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 5px;
+  font-family: sans-serif;
+}
+
+.alarm-time {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+}
+
+.alarm-days {
+  flex: 1;
+  text-align: center;
+}
+
+.alarm-actions {
+   display: flex;
+  gap: 8px;
+  text-align: right;
+}
+
+.alarm-actions button {
+  padding: 6px 10px;
+  cursor: pointer;
+  background-color: #ff6666;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+}
+
+
+.alarm-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  min-width: 280px;
+  max-width: 90%;
+}
+
+.alarm-popup p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.alarm-popup button {
+  background-color:rgb(255, 169, 77);
+  border: none;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.alarm-popup button:hover {
+  background-color:rgb(230, 127, 0);
+}
