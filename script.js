@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bottomAlarmBtn.style.display = "none";
       actionButtons.classList.remove("stacked");
       noteInputVisible = false;
-      //noteContainer.style.display = "none";
+      noteContainer.style.display = "none";
     }
   });
 
@@ -283,8 +283,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  bottomAlarmBtn.addEventListener("click", handleAlarmSubmit);
-
   // Dark/light mode toggle
   toggvarheme.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
@@ -295,45 +293,49 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-let activeAlarm = null;
-const alarmSound = new Audio('audio/alarm.mp3');
+var activeAlarm = null;
+var alarmTimeout = null;
 
-function requestNotificationPermission() {
-  if (Notification.permission === 'default') {
-    Notification.requestPermission();
-  }
-}
+// Check alarm every second
+//setInterval(checkAlarms, 1000);
 
 function triggerAlarm() {
-  document.getElementById('alarmPopup').style.display = 'block';
+  alarmPopup.style.display = 'block';
   alarmSound.play();
-  if (Notification.permission === 'granted') {
-    new Notification("⏰ Alarm is ringing!");
-  }
-}
-
-function startAlarm() {
-  requestNotificationPermission();
-  activeAlarm = true;
-  setTimeout(() => {
-    triggerAlarm();
-  }, 5000); // 5 seconds test
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('stopAlarm').addEventListener('click', () => {
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
-    document.getElementById('alarmPopup').style.display = 'none';
-  });
+  const stopAlarmBtn = document.getElementById('stopAlarm');
 
-  document.getElementById('snoozeAlarm').addEventListener('click', () => {
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
-    document.getElementById('alarmPopup').style.display = 'none';
-
-    setTimeout(() => {
-      triggerAlarm();
-    }, 5 * 60 * 1000);
-  });
+  if (stopAlarmBtn) {
+    stopAlarmBtn.addEventListener('click', () => {
+      alarmSound.pause();
+      alarmSound.currentTime = 0;
+      alarmPopup.style.display = 'none';
+    });
+  } else {
+    console.error('Stop Alarm button not found');
+  }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const snoozeAlarmBtn = document.getElementById('snoozeAlarm');
+
+  if (snoozeAlarmBtn) {
+    snoozeAlarmBtn.addEventListener('click', () => {
+      alarmSound.pause();
+      alarmSound.currentTime = 0;
+      alarmPopup.style.display = 'none';
+    });
+  } else {
+    console.error('snooze not found');
+  }
+});
+
+// snooze for 5 minutes
+if (activeAlarm !== null) {
+  setTimeout(() => {
+    triggerAlarm();
+  }, 20 * 60 * 1000);
+}
+
